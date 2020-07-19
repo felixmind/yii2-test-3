@@ -1,0 +1,44 @@
+version: '3'
+services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: "nginx:alpine"
+    volumes:
+      - ./nginx-proxy/:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    links:
+      - nginx-application
+    depends_on:
+      - nginx-application
+  nginx-application:
+    container_name: application
+    image: "nginx:alpine"
+    volumes:
+      - ../src:/var/www
+      - ./nginx-main/:/etc/nginx/conf.d
+    ports:
+      - "8000:8000"
+    depends_on:
+      - php-fpm
+  php-fpm:
+    container_name: php-fpm
+    image: "php:7.1-fpm"
+    volumes:
+      - ../src:/var/www
+    ports:
+    - "9000"
+  postgres:
+    container_name: database
+    image: "postgres:12-alpine"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: dbpassword
+      POSTGRES_DB: dbtest
+  composer:
+    container_name: composer
+    command: install
+    image: "composer:2.0"
+    volumes:
+      - ../src:/app
