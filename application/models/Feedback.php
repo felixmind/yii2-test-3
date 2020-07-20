@@ -26,8 +26,8 @@ class Feedback extends ActiveRecord
     public function rules()
     {
         return [
-            [['customer', 'phone'], 'required'],
-            ['customer', 'string', 'min' => '2', 'max' => '50'],
+            [['phone'], 'required'],
+            ['customer', 'string', 'min' => '2', 'max' => '256'],
             ['phone', 'match', 'pattern' => '/^\+\d\(\d{3}\)\d{3}-\d{2}-\d{2}$/i'],
             ['status', 'in', 'range' => array_keys(self::STATUSES)],
         ];
