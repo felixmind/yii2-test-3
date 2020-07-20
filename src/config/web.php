@@ -53,6 +53,7 @@ $config = [
         */
     ],
     'params' => $params,
+    'defaultRoute' => 'feedback/index',
 ];
 
 if (YII_ENV_DEV) {
