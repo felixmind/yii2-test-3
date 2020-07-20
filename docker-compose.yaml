@@ -2,7 +2,7 @@ version: '3'
 services:
 
   nginx-proxy:
-    container_name: nginx-proxy
+    container_name: felixmind.nginx-proxy
     image: "nginx:alpine"
     volumes:
       - ./docker-config/nginx-proxy/:/etc/nginx/conf.d
@@ -14,7 +14,7 @@ services:
       - nginx-application
 
   nginx-application:
-    container_name: application
+    container_name: felixmind.application
     image: "nginx:alpine"
     volumes:
       - ./application:/var/www
@@ -28,7 +28,7 @@ services:
     build:
       context: ./docker-config/php
       dockerfile: Dockerfile
-    container_name: php-fpm
+    container_name: felixmind.php-fpm
     image: "php:7.1-fpm"
     volumes:
       - ./application:/var/www
@@ -36,7 +36,7 @@ services:
     - "9000"
 
   postgres:
-    container_name: database
+    container_name: felixmind.database
     image: "postgres:12-alpine"
     ports:
       - "5432:5432"
@@ -45,7 +45,7 @@ services:
       POSTGRES_DB: dbtest
 
   composer:
-    container_name: composer
+    container_name: felixmind.composer
     command: install
     image: "composer:2.0"
     volumes:

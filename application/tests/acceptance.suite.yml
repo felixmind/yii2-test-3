@@ -2,7 +2,7 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-              url: http://application:8000
+              url: http://felixmind.application:8000
         - Yii2:
             part: orm
             entryScript: index-test.php
