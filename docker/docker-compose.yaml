@@ -22,6 +22,9 @@ services:
     depends_on:
       - php-fpm
   php-fpm:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
     container_name: php-fpm
     image: "php:7.1-fpm"
     volumes:
