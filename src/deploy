@@ -1,0 +1,5 @@
+#!/bin/bash
+
+php yii migrate --interactive=0
+php yii fixture/load Feedback --interactive=0
+php vendor/bin/codecept run acceptance FeedbackCest --steps
