@@ -22,7 +22,7 @@ class AdminPanelController extends Controller
         $searchModel = new FeedbackSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->get());
         $dataProvider->setPagination([
-            'pageSize' => 3,
+            'pageSize' => 1,
         ]);
 
         return $this->render('feedback', [
