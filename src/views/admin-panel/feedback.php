@@ -3,11 +3,8 @@
 use app\models\Feedback;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\helpers\Url;
 
 ?>
-
-<a href="<?= Url::to(['feedback/index']) ?>">Показать форму обратной связи</a>
 
 <?= GridView::widget([
     'dataProvider' => $dataProvider,

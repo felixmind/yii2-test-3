@@ -7,9 +7,6 @@ use yii\widgets\ActiveForm;
 use \yii\widgets\MaskedInput;
 ?>
 
-<a href="<?= Url::to(['admin-panel/index']) ?>">Вернуться к списку заявок</a><br>
-<a href="<?= Url::to(['feedback/index']) ?>">Показать форму обратной связи</a>
-
 <?php $form = ActiveForm::begin(); ?>
 
 <?= $form->field($model, 'id')->hiddenInput()->label(false) ?>
@@ -24,3 +21,5 @@ use \yii\widgets\MaskedInput;
 </div>
 
 <?php ActiveForm::end(); ?>
+
+<a href="<?= Url::to(['admin-panel/index']) ?>">Вернуться к списку заявок</a>

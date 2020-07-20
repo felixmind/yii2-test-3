@@ -5,8 +5,6 @@ use yii\widgets\ActiveForm;
 use \yii\widgets\MaskedInput;
 ?>
 
-<a href="<?= Url::to(['admin-panel/index']) ?>">Показать список заявок</a>
-
 <?php $form = ActiveForm::begin(); ?>
 
 <?= $form->field($model, 'customer')->label('Как к Вам обращаться?') ?>
@@ -19,3 +17,5 @@ use \yii\widgets\MaskedInput;
     </div>
 
 <?php ActiveForm::end(); ?>
+
+<a href="<?= Url::to(['admin-panel/index']) ?>">Показать список заявок</a>
