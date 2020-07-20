@@ -14,9 +14,9 @@ class m200719_192806_create_feedbacks_table extends Migration
     {
         $this->createTable('feedbacks', [
             'id'       => $this->primaryKey(),
-            'customer' => $this->string(),
-            'phone'    => $this->string(),
-            'status'   => $this->tinyInteger(),
+            'customer' => $this->string()->notNull(),
+            'phone'    => $this->string()->notNull(),
+            'status'   => $this->tinyInteger()->notNull()->defaultValue(0),
         ]);
     }
 
